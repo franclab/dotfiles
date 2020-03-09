@@ -1,0 +1,41 @@
+#COCK.LI
+#---------------------------------------------------------
+#set folder= "~/Mail/cock/" #Para usar con mbsync -a
+#set folder="imaps://unbloated@cock.li@mail.cock.li:993"
+#set smtp_url = "smtp://unbloated@cock.li@mail.cock.li:587"
+
+#set smtp_pass="Milei2020"
+#set imap_pass="Milei2020"
+
+
+#set from= "unbloated@cock.li"
+#set realname= "Chad"
+#---------------------------------------------------------
+
+
+#OUTLOOK.COM
+#---------------------------------------------------------
+
+set folder= "~/Mail/outlook/" #Para usar con mbsync -a
+#set folder="imaps://franlab@outlook.com@outlook.office365.com:993"
+set smtp_url = "smtp://franlab@outlook.com@smtp.office365.com:587"
+
+set smtp_pass="Gaboto1141"
+set imap_pass="Gaboto1141"
+
+
+set from= "franlab@outlook.com"
+set realname= "Fran"
+#---------------------------------------------------------
+
+set spoolfile = "+Inbox"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+set timeout=30
+mailboxes =Inbox =Sent =Trash =Drafts =Junk
+set sort = reverse-date-received
+
+source color.muttrc 
+source /home/fran/Documentos/maildir
