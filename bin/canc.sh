@@ -4,7 +4,7 @@
 # Dependencia: mp3info 
 
 # Conviene copiarlo a ~/.local/bin/; chmod +x canc.sh (otorga permiso de ejecución)
-# Crear carpeta en /Música/Artista/Album: mkdir -p Música/Nombre\Artista/Nombre\ Album/  
+# Crear carpeta en /Música/Artista/Album: mkdir -p Música/Nombre\Artista/Nombre\ Album\ \(Año\) 
 # Entrar en la carpeta antes de ejecutar el script: cd Música/Nombre\Artista/Nombre\ Album\ (Año)/  
 # Renombrar archivos como "01Nombre De Pista.mp3" (2 dígitos al principio), Conviene usar Ranger u otro gestor de archivos que tenga la opción de renombrar archivos usando Vim
  
@@ -20,7 +20,7 @@ case $opcion in
 	#read -p "Álbum: " l
 	
 	parent="`pwd`"
-	l=${parent##*/}
+	auxl=${parent##*/}; l=${auxl%% (*}
 	auxa=${parent%/*}; a=${auxa##*/}
 	auxy=${parent%)}; y=${auxy#* (}
 	for i in *.mp3
