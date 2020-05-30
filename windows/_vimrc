@@ -1,0 +1,47 @@
+set backspace=indent,eol,start
+set nu
+set rnu
+syntax on
+"set autoindent
+set smartindent
+inoremap { {}<ESC>ha
+inoremap ( ()<ESC>ha
+inoremap [ []<ESC>ha
+inoremap " ""<ESC>ha
+inoremap ' ''<ESC>ha
+inoremap < <><ESC>ha
+
+set enc=utf-8
+
+call plug#begin()
+Plug 'preservim/nerdtree'
+Plug 'morhetz/gruvbox'
+Plug 'vimwiki/vimwiki'
+call plug#end()
+autocmd vimenter * colorscheme gruvbox
+set background=dark    " Setting dark mode
+map <C-n> :NERDTreeToggle <CR>
+set nocompatible
+filetype plugin on
+" sacar barras
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+set guioptions-=m
+" fonts
+"set guifont=courier_new:h12
+" Window Navigation with Ctrl-[hjkl]
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+"vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set belloff=all
+
+" mapeos
+nmap ,c i```<Enter>```<Esc>kA
