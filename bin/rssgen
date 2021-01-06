@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# plantilla
+# forma ingresar datos -> abrir archivo temporal para escribir
+# comando sed para buscar y reemplazar marcador <!-- LB --> con el contenido
+
+website="https://franlab93.github.io/"
+rssdate="$(LC_TIME=es_AR date '+%a, %d %b %Y %H:%M:%S %z')"
+rssfile="rss.xml"
+read -p "Título publicación:" title
+read -p "Link [Home]:" link
+link=${link:-$website}
+guid=$link
+temp="$(mktemp)"
+$EDITOR "$temp"
+content=$(< "$temp")
+
+echo "
+<item>
+<title>$title</title>
+<guid>$guid</guid>
+<link>$link</link>
+<pubDate>$rssdate</pubDate>
+<description><![CDATA[$content
+]]></description>
+</item>" # > "$temp"
+
+# sed -i "/<!-- LB -->/r $temp" "$rssfile
